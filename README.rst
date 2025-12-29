@@ -52,4 +52,4 @@ To regenerate the stubs::
 
 To build and publish::
 
-    uv build --all-packages && uv publish
+    ./publish
