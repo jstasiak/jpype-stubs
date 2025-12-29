@@ -1,5 +1,6 @@
 [dependency-groups]
 dev = [
+    "ruff>=0.14.10",
     "stubgenj>=0.2.12",
 ]
 

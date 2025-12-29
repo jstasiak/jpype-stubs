@@ -6,3 +6,5 @@ uv run python -m stubgenj --output-dir java-stubs java
 
 # jpype distributes their own type information, I don't think we need these stubs here
 rm -rf java-stubs-converted-strings/jpype-stubs java-stubs/jpype-stubs
+
+uv run ruff format
