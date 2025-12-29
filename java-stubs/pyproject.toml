@@ -1,0 +1,10 @@
+[project]
+name = "java-stubs"
+version = "0.1.0"
+description = "The JPype java.* type definitions (the default, no automated Java string -> Python string conversions)"
+readme = "../README.rst"
+license = "MIT"
+requires-python = ">=3.11"
+dependencies = [
+    "jpype1>=1.6.0",
+]

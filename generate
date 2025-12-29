@@ -1,0 +1,8 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+uv run python -m stubgenj --convert-strings --output-dir java-stubs-converted-strings java
+uv run python -m stubgenj --output-dir java-stubs java
+
+# jpype distributes their own type information, I don't think we need these stubs here
+rm -rf java-stubs-converted-strings/jpype-stubs java-stubs/jpype-stubs

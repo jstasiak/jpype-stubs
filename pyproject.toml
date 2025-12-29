@@ -1,0 +1,10 @@
+[dependency-groups]
+dev = [
+    "stubgenj>=0.2.12",
+]
+
+[tool.uv.workspace]
+members = [
+    "java-stubs-converted-strings",
+    "java-stubs",
+]
