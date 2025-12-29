@@ -1,5 +1,5 @@
-
 import sys
+
 if sys.version_info >= (3, 8):
     from typing import Protocol
 else:
@@ -7,8 +7,6 @@ else:
 
 import java.lang.invoke
 import typing
-
-
 
 class ExactConversionsSupport:
     @staticmethod
@@ -56,14 +54,30 @@ class ExactConversionsSupport:
 
 class ObjectMethods:
     @staticmethod
-    def bootstrap(lookup: java.lang.invoke.MethodHandles.Lookup, string: str, typeDescriptor: typing.Union[java.lang.invoke.TypeDescriptor, typing.Callable], class_: typing.Type[typing.Any], string2: str, *methodHandle: java.lang.invoke.MethodHandle) -> typing.Any: ...
+    def bootstrap(
+        lookup: java.lang.invoke.MethodHandles.Lookup,
+        string: str,
+        typeDescriptor: typing.Union[java.lang.invoke.TypeDescriptor, typing.Callable],
+        class_: typing.Type[typing.Any],
+        string2: str,
+        *methodHandle: java.lang.invoke.MethodHandle,
+    ) -> typing.Any: ...
 
 class SwitchBootstraps:
     @staticmethod
-    def enumSwitch(lookup: java.lang.invoke.MethodHandles.Lookup, string: str, methodType: java.lang.invoke.MethodType, *object: typing.Any) -> java.lang.invoke.CallSite: ...
+    def enumSwitch(
+        lookup: java.lang.invoke.MethodHandles.Lookup,
+        string: str,
+        methodType: java.lang.invoke.MethodType,
+        *object: typing.Any,
+    ) -> java.lang.invoke.CallSite: ...
     @staticmethod
-    def typeSwitch(lookup: java.lang.invoke.MethodHandles.Lookup, string: str, methodType: java.lang.invoke.MethodType, *object: typing.Any) -> java.lang.invoke.CallSite: ...
-
+    def typeSwitch(
+        lookup: java.lang.invoke.MethodHandles.Lookup,
+        string: str,
+        methodType: java.lang.invoke.MethodType,
+        *object: typing.Any,
+    ) -> java.lang.invoke.CallSite: ...
 
 class __module_protocol__(Protocol):
     # A module protocol which reflects the result of ``jp.JPackage("java.lang.runtime")``.

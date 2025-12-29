@@ -1,5 +1,5 @@
-
 import sys
+
 if sys.version_info >= (3, 8):
     from typing import Protocol
 else:
@@ -12,15 +12,14 @@ import java.rmi.registry
 import java.rmi.server
 import typing
 
-
-
 class AlreadyBoundException(java.lang.Exception):
     @typing.overload
     def __init__(self): ...
     @typing.overload
     def __init__(self, string: str): ...
 
-_MarshalledObject__T = typing.TypeVar('_MarshalledObject__T')  # <T>
+_MarshalledObject__T = typing.TypeVar("_MarshalledObject__T")  # <T>
+
 class MarshalledObject(java.io.Serializable, typing.Generic[_MarshalledObject__T]):
     def __init__(self, t: _MarshalledObject__T): ...
     def equals(self, object: typing.Any) -> bool: ...
@@ -29,13 +28,13 @@ class MarshalledObject(java.io.Serializable, typing.Generic[_MarshalledObject__T
 
 class Naming:
     @staticmethod
-    def bind(string: str, remote: 'Remote') -> None: ...
+    def bind(string: str, remote: "Remote") -> None: ...
     @staticmethod
     def list(string: str) -> typing.MutableSequence[str]: ...
     @staticmethod
-    def lookup(string: str) -> 'Remote': ...
+    def lookup(string: str) -> "Remote": ...
     @staticmethod
-    def rebind(string: str, remote: 'Remote') -> None: ...
+    def rebind(string: str, remote: "Remote") -> None: ...
     @staticmethod
     def unbind(string: str) -> None: ...
 
@@ -129,7 +128,6 @@ class UnmarshalException(RemoteException):
     def __init__(self, string: str): ...
     @typing.overload
     def __init__(self, string: str, exception: java.lang.Exception): ...
-
 
 class __module_protocol__(Protocol):
     # A module protocol which reflects the result of ``jp.JPackage("java.rmi")``.

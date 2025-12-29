@@ -1,5 +1,5 @@
-
 import sys
+
 if sys.version_info >= (3, 8):
     from typing import Protocol
 else:
@@ -9,30 +9,42 @@ import java.rmi
 import java.rmi.server
 import typing
 
-
-
 class LocateRegistry:
     @typing.overload
     @staticmethod
-    def createRegistry(int: int) -> 'Registry': ...
+    def createRegistry(int: int) -> "Registry": ...
     @typing.overload
     @staticmethod
-    def createRegistry(int: int, rMIClientSocketFactory: typing.Union[java.rmi.server.RMIClientSocketFactory, typing.Callable], rMIServerSocketFactory: typing.Union[java.rmi.server.RMIServerSocketFactory, typing.Callable]) -> 'Registry': ...
+    def createRegistry(
+        int: int,
+        rMIClientSocketFactory: typing.Union[
+            java.rmi.server.RMIClientSocketFactory, typing.Callable
+        ],
+        rMIServerSocketFactory: typing.Union[
+            java.rmi.server.RMIServerSocketFactory, typing.Callable
+        ],
+    ) -> "Registry": ...
     @typing.overload
     @staticmethod
-    def getRegistry() -> 'Registry': ...
+    def getRegistry() -> "Registry": ...
     @typing.overload
     @staticmethod
-    def getRegistry(int: int) -> 'Registry': ...
+    def getRegistry(int: int) -> "Registry": ...
     @typing.overload
     @staticmethod
-    def getRegistry(string: str) -> 'Registry': ...
+    def getRegistry(string: str) -> "Registry": ...
     @typing.overload
     @staticmethod
-    def getRegistry(string: str, int: int) -> 'Registry': ...
+    def getRegistry(string: str, int: int) -> "Registry": ...
     @typing.overload
     @staticmethod
-    def getRegistry(string: str, int: int, rMIClientSocketFactory: typing.Union[java.rmi.server.RMIClientSocketFactory, typing.Callable]) -> 'Registry': ...
+    def getRegistry(
+        string: str,
+        int: int,
+        rMIClientSocketFactory: typing.Union[
+            java.rmi.server.RMIClientSocketFactory, typing.Callable
+        ],
+    ) -> "Registry": ...
 
 class Registry(java.rmi.Remote):
     REGISTRY_PORT: typing.ClassVar[int] = ...
@@ -45,7 +57,6 @@ class Registry(java.rmi.Remote):
 class RegistryHandler:
     def registryImpl(self, int: int) -> Registry: ...
     def registryStub(self, string: str, int: int) -> Registry: ...
-
 
 class __module_protocol__(Protocol):
     # A module protocol which reflects the result of ``jp.JPackage("java.rmi.registry")``.

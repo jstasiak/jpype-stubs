@@ -1,5 +1,5 @@
-
 import sys
+
 if sys.version_info >= (3, 8):
     from typing import Protocol
 else:
@@ -12,15 +12,14 @@ import java.rmi.registry
 import java.rmi.server
 import typing
 
-
-
 class AlreadyBoundException(java.lang.Exception):
     @typing.overload
     def __init__(self): ...
     @typing.overload
     def __init__(self, string: typing.Union[java.lang.String, str]): ...
 
-_MarshalledObject__T = typing.TypeVar('_MarshalledObject__T')  # <T>
+_MarshalledObject__T = typing.TypeVar("_MarshalledObject__T")  # <T>
+
 class MarshalledObject(java.io.Serializable, typing.Generic[_MarshalledObject__T]):
     def __init__(self, t: _MarshalledObject__T): ...
     def equals(self, object: typing.Any) -> bool: ...
@@ -29,13 +28,17 @@ class MarshalledObject(java.io.Serializable, typing.Generic[_MarshalledObject__T
 
 class Naming:
     @staticmethod
-    def bind(string: typing.Union[java.lang.String, str], remote: 'Remote') -> None: ...
+    def bind(string: typing.Union[java.lang.String, str], remote: "Remote") -> None: ...
     @staticmethod
-    def list(string: typing.Union[java.lang.String, str]) -> typing.MutableSequence[java.lang.String]: ...
+    def list(
+        string: typing.Union[java.lang.String, str],
+    ) -> typing.MutableSequence[java.lang.String]: ...
     @staticmethod
-    def lookup(string: typing.Union[java.lang.String, str]) -> 'Remote': ...
+    def lookup(string: typing.Union[java.lang.String, str]) -> "Remote": ...
     @staticmethod
-    def rebind(string: typing.Union[java.lang.String, str], remote: 'Remote') -> None: ...
+    def rebind(
+        string: typing.Union[java.lang.String, str], remote: "Remote"
+    ) -> None: ...
     @staticmethod
     def unbind(string: typing.Union[java.lang.String, str]) -> None: ...
 
@@ -49,7 +52,11 @@ class RMISecurityException(java.lang.SecurityException):
     @typing.overload
     def __init__(self, string: typing.Union[java.lang.String, str]): ...
     @typing.overload
-    def __init__(self, string: typing.Union[java.lang.String, str], string2: typing.Union[java.lang.String, str]): ...
+    def __init__(
+        self,
+        string: typing.Union[java.lang.String, str],
+        string2: typing.Union[java.lang.String, str],
+    ): ...
 
 class RMISecurityManager(java.lang.SecurityManager):
     def __init__(self): ...
@@ -63,7 +70,11 @@ class RemoteException(java.io.IOException):
     @typing.overload
     def __init__(self, string: typing.Union[java.lang.String, str]): ...
     @typing.overload
-    def __init__(self, string: typing.Union[java.lang.String, str], throwable: java.lang.Throwable): ...
+    def __init__(
+        self,
+        string: typing.Union[java.lang.String, str],
+        throwable: java.lang.Throwable,
+    ): ...
     def getCause(self) -> java.lang.Throwable: ...
     def getMessage(self) -> java.lang.String: ...
 
@@ -71,65 +82,106 @@ class AccessException(RemoteException):
     @typing.overload
     def __init__(self, string: typing.Union[java.lang.String, str]): ...
     @typing.overload
-    def __init__(self, string: typing.Union[java.lang.String, str], exception: java.lang.Exception): ...
+    def __init__(
+        self,
+        string: typing.Union[java.lang.String, str],
+        exception: java.lang.Exception,
+    ): ...
 
 class ConnectException(RemoteException):
     @typing.overload
     def __init__(self, string: typing.Union[java.lang.String, str]): ...
     @typing.overload
-    def __init__(self, string: typing.Union[java.lang.String, str], exception: java.lang.Exception): ...
+    def __init__(
+        self,
+        string: typing.Union[java.lang.String, str],
+        exception: java.lang.Exception,
+    ): ...
 
 class ConnectIOException(RemoteException):
     @typing.overload
     def __init__(self, string: typing.Union[java.lang.String, str]): ...
     @typing.overload
-    def __init__(self, string: typing.Union[java.lang.String, str], exception: java.lang.Exception): ...
+    def __init__(
+        self,
+        string: typing.Union[java.lang.String, str],
+        exception: java.lang.Exception,
+    ): ...
 
 class MarshalException(RemoteException):
     @typing.overload
     def __init__(self, string: typing.Union[java.lang.String, str]): ...
     @typing.overload
-    def __init__(self, string: typing.Union[java.lang.String, str], exception: java.lang.Exception): ...
+    def __init__(
+        self,
+        string: typing.Union[java.lang.String, str],
+        exception: java.lang.Exception,
+    ): ...
 
 class NoSuchObjectException(RemoteException):
     def __init__(self, string: typing.Union[java.lang.String, str]): ...
 
 class ServerError(RemoteException):
-    def __init__(self, string: typing.Union[java.lang.String, str], error: java.lang.Error): ...
+    def __init__(
+        self, string: typing.Union[java.lang.String, str], error: java.lang.Error
+    ): ...
 
 class ServerException(RemoteException):
     @typing.overload
     def __init__(self, string: typing.Union[java.lang.String, str]): ...
     @typing.overload
-    def __init__(self, string: typing.Union[java.lang.String, str], exception: java.lang.Exception): ...
+    def __init__(
+        self,
+        string: typing.Union[java.lang.String, str],
+        exception: java.lang.Exception,
+    ): ...
 
 class ServerRuntimeException(RemoteException):
-    def __init__(self, string: typing.Union[java.lang.String, str], exception: java.lang.Exception): ...
+    def __init__(
+        self,
+        string: typing.Union[java.lang.String, str],
+        exception: java.lang.Exception,
+    ): ...
 
 class StubNotFoundException(RemoteException):
     @typing.overload
     def __init__(self, string: typing.Union[java.lang.String, str]): ...
     @typing.overload
-    def __init__(self, string: typing.Union[java.lang.String, str], exception: java.lang.Exception): ...
+    def __init__(
+        self,
+        string: typing.Union[java.lang.String, str],
+        exception: java.lang.Exception,
+    ): ...
 
 class UnexpectedException(RemoteException):
     @typing.overload
     def __init__(self, string: typing.Union[java.lang.String, str]): ...
     @typing.overload
-    def __init__(self, string: typing.Union[java.lang.String, str], exception: java.lang.Exception): ...
+    def __init__(
+        self,
+        string: typing.Union[java.lang.String, str],
+        exception: java.lang.Exception,
+    ): ...
 
 class UnknownHostException(RemoteException):
     @typing.overload
     def __init__(self, string: typing.Union[java.lang.String, str]): ...
     @typing.overload
-    def __init__(self, string: typing.Union[java.lang.String, str], exception: java.lang.Exception): ...
+    def __init__(
+        self,
+        string: typing.Union[java.lang.String, str],
+        exception: java.lang.Exception,
+    ): ...
 
 class UnmarshalException(RemoteException):
     @typing.overload
     def __init__(self, string: typing.Union[java.lang.String, str]): ...
     @typing.overload
-    def __init__(self, string: typing.Union[java.lang.String, str], exception: java.lang.Exception): ...
-
+    def __init__(
+        self,
+        string: typing.Union[java.lang.String, str],
+        exception: java.lang.Exception,
+    ): ...
 
 class __module_protocol__(Protocol):
     # A module protocol which reflects the result of ``jp.JPackage("java.rmi")``.

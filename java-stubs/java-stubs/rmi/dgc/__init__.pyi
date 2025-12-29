@@ -1,5 +1,5 @@
-
 import sys
+
 if sys.version_info >= (3, 8):
     from typing import Protocol
 else:
@@ -12,15 +12,24 @@ import java.rmi.server
 import jpype
 import typing
 
-
-
 class DGC(java.rmi.Remote):
-    def clean(self, objIDArray: typing.Union[typing.List[java.rmi.server.ObjID], jpype.JArray], long: int, vMID: 'VMID', boolean: bool) -> None: ...
-    def dirty(self, objIDArray: typing.Union[typing.List[java.rmi.server.ObjID], jpype.JArray], long: int, lease: 'Lease') -> 'Lease': ...
+    def clean(
+        self,
+        objIDArray: typing.Union[typing.List[java.rmi.server.ObjID], jpype.JArray],
+        long: int,
+        vMID: "VMID",
+        boolean: bool,
+    ) -> None: ...
+    def dirty(
+        self,
+        objIDArray: typing.Union[typing.List[java.rmi.server.ObjID], jpype.JArray],
+        long: int,
+        lease: "Lease",
+    ) -> "Lease": ...
 
 class Lease(java.io.Serializable):
-    def __init__(self, vMID: 'VMID', long: int): ...
-    def getVMID(self) -> 'VMID': ...
+    def __init__(self, vMID: "VMID", long: int): ...
+    def getVMID(self) -> "VMID": ...
     def getValue(self) -> int: ...
 
 class VMID(java.io.Serializable):
@@ -30,7 +39,6 @@ class VMID(java.io.Serializable):
     @staticmethod
     def isUnique() -> bool: ...
     def toString(self) -> java.lang.String: ...
-
 
 class __module_protocol__(Protocol):
     # A module protocol which reflects the result of ``jp.JPackage("java.rmi.dgc")``.
