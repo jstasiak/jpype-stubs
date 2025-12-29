@@ -14,5 +14,5 @@ dependencies = [
 ]
 
 [project.urls]
-Repository = "https://github.com/jstasiak/jpype-stubs"
-"Bug Tracker" = "https://github.com/jstasiak/jpype-stubs/issues"
+Repository = "https://github.com/jstasiak/jpype-java-stubs"
+"Bug Tracker" = "https://github.com/jstasiak/jpype-java-stubs/issues"
