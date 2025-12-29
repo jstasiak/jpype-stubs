@@ -46,4 +46,10 @@ Known limitations
 Internal documentation
 ----------------------
 
-Run ``./generate`` to regenerate the stubs.
+To regenerate the stubs::
+
+    ./generate
+
+To build and publish:
+
+    uv build --all-packages && uv publish
