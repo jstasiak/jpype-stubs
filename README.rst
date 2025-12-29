@@ -50,6 +50,6 @@ To regenerate the stubs::
 
     ./generate
 
-To build and publish:
+To build and publish::
 
     uv build --all-packages && uv publish
